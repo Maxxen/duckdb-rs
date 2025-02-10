@@ -1,6 +1,6 @@
 use super::{BindInfo, DataChunkHandle, InitInfo, LogicalTypeHandle, LogicalTypeId, TableFunctionInfo, VTab};
-use std::sync::{atomic::AtomicBool, Mutex};
 use std::sync::Arc;
+use std::sync::{atomic::AtomicBool, Mutex};
 
 use crate::{
     core::{ArrayVector, FlatVector, Inserter, ListVector, StructVector, Vector},
@@ -10,10 +10,9 @@ use arrow::{
     array::{
         as_boolean_array, as_generic_binary_array, as_large_list_array, as_list_array, as_primitive_array,
         as_string_array, as_struct_array, Array, ArrayData, AsArray, BinaryArray, BinaryViewArray, BooleanArray,
-        Date32Array, Decimal128Array, FixedSizeBinaryArray, FixedSizeListArray, GenericBinaryBuilder,
-        GenericListArray, GenericStringArray, IntervalMonthDayNanoArray, LargeBinaryArray,
-        LargeStringArray, OffsetSizeTrait, PrimitiveArray, StringArray, StringViewArray, StructArray,
-        TimestampMicrosecondArray, TimestampNanosecondArray,
+        Date32Array, Decimal128Array, FixedSizeBinaryArray, FixedSizeListArray, GenericBinaryBuilder, GenericListArray,
+        GenericStringArray, IntervalMonthDayNanoArray, LargeBinaryArray, LargeStringArray, OffsetSizeTrait,
+        PrimitiveArray, StringArray, StringViewArray, StructArray, TimestampMicrosecondArray, TimestampNanosecondArray,
     },
     buffer::{BooleanBuffer, NullBuffer},
     compute::cast,
@@ -26,8 +25,7 @@ use arrow::{
 };
 
 use libduckdb_sys::{
-    duckdb_date, duckdb_hugeint, duckdb_interval, duckdb_string_t,
-    duckdb_time, duckdb_timestamp, duckdb_vector,
+    duckdb_date, duckdb_hugeint, duckdb_interval, duckdb_string_t, duckdb_time, duckdb_timestamp, duckdb_vector,
 };
 use num::{cast::AsPrimitive, ToPrimitive};
 

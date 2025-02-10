@@ -76,7 +76,8 @@ impl ArrowFunctionSignature {
 /// A trait for scalar functions that accept and return arrow types that can be registered with DuckDB
 pub trait VArrowScalar: Sized {
     /// State that persists across invocations of the scalar function (the lifetime of the connection)
-    type State: Default;
+    /// The state can be accessed by multiple threads, so it must be `Send + Sync`.
+    type State: Default + Sized + Send + Sync;
 
     /// The actual function that is called by DuckDB
     fn invoke(info: &Self::State, input: RecordBatch) -> Result<Arc<dyn Array>, Box<dyn std::error::Error>>;

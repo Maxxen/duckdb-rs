@@ -56,7 +56,7 @@ impl FlatVector {
     pub fn capacity(&self) -> usize {
         self.capacity
     }
-    
+
     /// Returns true if the row at the given index is null
     pub fn row_is_null(&self, row: u64) -> bool {
         // use idx_t entry_idx = row_idx / 64; idx_t idx_in_entry = row_idx % 64; bool is_valid = validity_mask[entry_idx] & (1 « idx_in_entry);

@@ -24,7 +24,8 @@ pub use arrow::{ArrowFunctionSignature, ArrowScalarParams, VArrowScalar};
 /// Duckdb scalar function trait
 pub trait VScalar: Sized {
     /// State that persists across invocations of the scalar function (the lifetime of the connection)
-    type State: Default;
+    /// The state can be accessed by multiple threads, so it must be `Send + Sync`.
+    type State: Default + Sized + Send + Sync;
     /// The actual function
     ///
     /// # Safety
