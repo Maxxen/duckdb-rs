@@ -121,7 +121,6 @@ jobs:
 
   Sanitizer:
       name: Address Sanitizer
-      needs: test
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
